@@ -9,7 +9,7 @@ $(document).ready(function() {
   //get text file
   $.ajax({
       type: "GET",
-      url: "http://jamesarmenta.github.io/images/colors/rgb.txt",
+      url: "http://cdn.rawgit.com/jamesarmenta/xkcd-colors/master/rgb.txt",
       dataType: "text",
       success: function(data) {processData(data);}
    });
