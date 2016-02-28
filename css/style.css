@@ -1,0 +1,168 @@
+* {
+  border: 0 !important;
+}
+
+body {
+  font-family: "WorkSansLight", sans-serif;
+  color: white;
+}
+
+a, a:visited {
+  color: white;
+  text-decoration: none;
+}
+
+#cover {
+  position: fixed;
+  width: 100vw;
+  height: 100vh;
+  background-color: grey;
+  z-index: 0;
+}
+
+ul#main {
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  display: inline-block;
+  text-align: center;
+}
+ul#main #colorname {
+  font-size: 2.7em;
+  font-family: "WorkSansBold", sans-serif;
+  text-transform: uppercase;
+}
+ul#main li {
+  margin: 20px 0 0 0;
+  width: auto;
+}
+
+li, li a {
+  margin: 5px 0 5px 0;
+  -moz-transition: all 150ms;
+  -o-transition: all 150ms;
+  -webkit-transition: all 150ms;
+  transition: all 150ms;
+}
+
+li a:hover {
+  padding-left: 4px;
+  -moz-transition: all 150ms;
+  -o-transition: all 150ms;
+  -webkit-transition: all 150ms;
+  transition: all 150ms;
+}
+
+#recent {
+  position: fixed;
+  top: 22px;
+  left: 40px;
+  text-align: left;
+  padding: 10px;
+  font-size: .9em;
+}
+@media (max-width: 600px) {
+  #recent {
+    visibility: hidden;
+  }
+}
+#recent p {
+  padding: 10px;
+  padding-left: 0;
+  opacity: 0.6;
+  -ms-filter: "progid:DXImageTransform.Microsoft.Alpha(Opacity=60)";
+  filter: alpha(opacity=60);
+  font-family: "WorkSansMedium", sans-serif;
+  font-size: 1em;
+  font-weight: 600;
+}
+
+#info {
+  position: fixed;
+  bottom: 20px;
+  left: 40px;
+  padding: 10px;
+  font-family: "WorkSansMedium", sans-serif;
+}
+#info h1 {
+  opacity: 0.75;
+  -ms-filter: "progid:DXImageTransform.Microsoft.Alpha(Opacity=75)";
+  filter: alpha(opacity=75);
+}
+#info p {
+  display: none;
+  font-family: "WorkSansLight", sans-serif;
+}
+#info p a {
+  text-decoration: underline;
+}
+@media (max-width: 600px) {
+  #info {
+    display: none;
+  }
+}
+
+#info:hover * {
+  display: inline;
+}
+
+#results {
+  position: absolute;
+  top: 20px;
+  right: 40px;
+  text-align: right;
+  padding: 10px;
+  font-size: .9em;
+}
+@media (max-width: 600px) {
+  #results {
+    visibility: hidden;
+  }
+}
+
+input#search {
+  padding: 10px;
+  padding-right: 0;
+  padding-left: 0;
+  font-family: "WorkSansMedium", sans-serif;
+  font-size: 1em;
+  background-color: transparent;
+  text-align: right;
+  color: white;
+}
+
+textarea:focus, input:focus, input[type]:focus {
+  outline: none;
+  box-shadow: 0 0px 0px red inset, 0 0 0px red;
+}
+
+::-webkit-input-placeholder {
+  /* WebKit, Blink, Edge */
+  color: white;
+  opacity: 0.75;
+}
+
+:-moz-placeholder {
+  /* Mozilla Firefox 4 to 18 */
+  color: white;
+  opacity: 0.75;
+}
+
+::-moz-placeholder {
+  /* Mozilla Firefox 19+ */
+  color: white;
+  opacity: 0.75;
+}
+
+:-ms-input-placeholder {
+  /* Internet Explorer 10-11 */
+  color: white;
+  opacity: 0.75;
+}
+
+:placeholder-shown {
+  /* Standard (https://drafts.csswg.org/selectors-4/#placeholder) */
+  color: white;
+  opacity: 0.75;
+}

@@ -1,0 +1,161 @@
+@mixin transformCenter()
+{
+  top: 50%; left: 50%;
+  transform: translate(-50%, -50%);
+}
+
+@mixin opacity($value){
+  $IEValue: $value*100;
+  opacity: $value;
+  -ms-filter: "progid:DXImageTransform.Microsoft.Alpha(Opacity="+$IEValue+")";
+  filter: alpha(opacity=$IEValue);
+}
+
+@mixin placeholder($color, $opac)
+{
+    ::-webkit-input-placeholder { /* WebKit, Blink, Edge */
+      color:    $color;
+      opacity:  $opacity;
+  }
+  :-moz-placeholder { /* Mozilla Firefox 4 to 18 */
+     color:    $color;
+     opacity:  $opacity;
+  }
+  ::-moz-placeholder { /* Mozilla Firefox 19+ */
+     color:    $color;
+     opacity:  $opacity;
+  }
+  :-ms-input-placeholder { /* Internet Explorer 10-11 */
+     color:    $color;
+      opacity:  $opacity;
+  }
+  :placeholder-shown { /* Standard (https://drafts.csswg.org/selectors-4/#placeholder) */
+    color:    $color;
+    opacity:  $opacity;
+  }
+}
+
+@mixin transition($transition...) 
+{
+    -moz-transition:    $transition;
+    -o-transition:      $transition;
+    -webkit-transition: $transition;
+    transition:         $transition;
+}
+
+$spacing-unit: 20px;
+$opacity: .75;
+$primary-font: 'WorkSansLight', sans-serif;
+$secondary-font: 'WorkSansBold', sans-serif;
+$third-font: 'WorkSansMedium', sans-serif;
+
+$mobile: "max-width: 600px";
+
+*{border:0 !important;}
+
+body
+{
+  font-family: $primary-font;
+  color: white;
+}
+
+a, a:visited {color: white; text-decoration: none;}
+
+.invert{}
+
+#cover{
+  position: fixed;
+  width: 100vw; height: 100vh;
+  background-color: grey;
+  z-index: 0;
+}
+
+ul#main
+{
+  position: fixed;
+  @include transformCenter();
+  display: inline-block;
+  text-align: center;
+  #colorname{font-size: 2.7em; font-family: $secondary-font; text-transform: uppercase;}
+  li{margin: $spacing-unit 0 0 0; width: auto;}
+}
+
+  li, li a{
+    margin: $spacing-unit/4 0 $spacing-unit/4 0;
+    @include transition(all 150ms);
+  }
+  li a:hover{padding-left: 4px; @include transition(all 150ms);}
+
+#recent
+{
+  position: fixed;
+  top: $spacing-unit+2px; left: $spacing-unit*2;
+  text-align: left;
+  padding: $spacing-unit/2;
+  
+  @media ($mobile) {
+		visibility: hidden;
+  }
+  font-size: .9em;
+  p
+  {
+    padding: $spacing-unit/2;
+    padding-left: 0;
+    
+    $recentopacity: $opacity - .15;
+    @include opacity($recentopacity);
+    font-family: $third-font;
+    font-size: 1em;
+    font-weight: 600;
+  }
+}
+
+#info
+{
+  position: fixed;
+  bottom: $spacing-unit; left: $spacing-unit*2;
+  padding: $spacing-unit/2;
+  font-family: $third-font;
+  h1{@include opacity($opacity);}
+  p{display: none;font-family: $primary-font;a{text-decoration: underline;}}
+  
+  
+  @media ($mobile) {
+		display: none;
+  }
+}
+
+#info:hover * {display: inline;}
+
+#results
+{
+  position: absolute;
+  
+  top: $spacing-unit; right: $spacing-unit*2;
+  text-align: right;
+  padding: $spacing-unit/2;
+  font-size: .9em;
+  
+  @media ($mobile) {
+		visibility: hidden;
+  }
+}
+input#search
+{
+  padding: $spacing-unit/2;
+  padding-right: 0; padding-left: 0;
+  
+  font-family: $third-font;
+  font-size: 1em;
+  background-color: transparent;
+  text-align: right;
+  color: white;
+}
+
+textarea:focus, input:focus, input[type]:focus
+{
+  outline: none;
+  box-shadow: 0 0px 0px red inset, 0 0 0px red;
+}
+
+@include placeholder(white, $opacity);
