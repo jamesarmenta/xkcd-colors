@@ -38,9 +38,7 @@ $(document).ready(function() {
   }
   /////////////////
   // clicks
-  var i=0;
   $("html").click(function(event){
-    console.log("click");
     var target = $(event.target);
     if( !target ){ target = window.event;}
     if(!target.is("input")&&!target.is("a"))
