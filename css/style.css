@@ -5,7 +5,11 @@
 body {
   font-family: "WorkSansLight", sans-serif;
   color: white;
-  cursor: pointer;
+}
+@media (max-width: 700px) {
+  body {
+    cursor: pointer;
+  }
 }
 
 a, a:visited {

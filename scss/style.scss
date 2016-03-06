@@ -57,7 +57,9 @@ body
 {
   font-family: $primary-font;
   color: white;
-  cursor: pointer;
+  @media ($mobile) {
+    cursor: pointer;
+  }
 }
 
 a, a:visited {color: white; text-decoration: none;}
